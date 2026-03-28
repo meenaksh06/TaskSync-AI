@@ -1,6 +1,0 @@
-librosa
-numpy
-pandas
-scikit-learn
-sounddevice
-scipy

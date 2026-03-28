@@ -1,0 +1,36 @@
+services:
+  # Python Backend (FastAPI)
+  - type: web
+    name: tasksync-backend
+    env: docker
+    plan: free
+    region: ohio
+    dockerfilePath: ./Ai Agent/Dockerfile
+    envVars:
+      - key: TRANSFORMERS_NO_TORCHVISION
+        value: "1"
+      - key: GOOGLE_CLIENT_ID
+        fromConfig: google-client-id
+      - key: GOOGLE_CLIENT_SECRET
+        fromConfig: google-client-secret
+
+  # Next.js Frontend
+  - type: web
+    name: tasksync-frontend
+    env: node
+    plan: free
+    region: ohio
+    buildCommand: npm install && npm run build
+    startCommand: npm run start
+    envVars:
+      - key: FASTAPI_URL
+        fromService:
+          type: web
+          name: tasksync-backend
+          property: host
+      - key: DATABASE_URL
+        value: "file:./dev.db" # In production, replace with Supabase/Neon URL
+      - key: NEXTAUTH_SECRET
+        generateValue: true
+      - key: NEXTAUTH_URL
+        value: "https://tasksync-frontend.onrender.com"
