@@ -13,11 +13,9 @@ COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 RUN python -m spacy download en_core_web_sm
 
-# Copy the actual agent code into the container
-COPY "Ai Agent/" .
+# Copy the actual agent code from the renamed directory
+COPY ai_agent/ .
 
 EXPOSE 8000
 
 CMD ["uvicorn", "app_enhanced:app", "--host", "0.0.0.0", "--port", "8000"]
-
-
