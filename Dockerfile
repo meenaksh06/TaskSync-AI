@@ -8,13 +8,13 @@ RUN apt-get update && apt-get install -y \
     software-properties-common \
     && rm -rf /var/lib/apt/lists/*
 
-# Copy from root context
+# Copy requirements from root
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 RUN python -m spacy download en_core_web_sm
 
-# Copy the actual agent code from the renamed directory
-COPY ai_agent/ .
+# Copy the backend code from the backend/ folder
+COPY backend/ .
 
 EXPOSE 8000
 
