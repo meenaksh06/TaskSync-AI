@@ -13,6 +13,13 @@ Production-ready AI assistant with:
 import os
 os.environ["TRANSFORMERS_NO_TORCHVISION"] = "1"
 
+# --- MEMORY OPTIMIZATIONS FOR 512MB RAM ---
+os.environ["TRANSFORMERS_OFFLINE"] = "1"
+os.environ["TORCH_NUM_THREADS"] = "1"
+os.environ["MKL_NUM_THREADS"] = "1"
+os.environ["OMP_NUM_THREADS"] = "1"
+# ------------------------------------------
+
 from fastapi import FastAPI, UploadFile, File, HTTPException, Form
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import FileResponse, RedirectResponse
