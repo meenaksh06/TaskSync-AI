@@ -8,12 +8,16 @@ RUN apt-get update && apt-get install -y \
     software-properties-common \
     && rm -rf /var/lib/apt/lists/*
 
+# Copy from root context
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 RUN python -m spacy download en_core_web_sm
 
-COPY . .
+# Copy the actual agent code into the container
+COPY "Ai Agent/" .
 
 EXPOSE 8000
 
 CMD ["uvicorn", "app_enhanced:app", "--host", "0.0.0.0", "--port", "8000"]
+
+
