@@ -8,15 +8,12 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     build-essential \
     && rm -rf /var/lib/apt/lists/*
 
-# Copy from root context
+# Copy requirements from root
 COPY requirements.txt .
 
-# Install dependencies
+# Install dependencies  (will include the spacy model now)
 RUN pip install --no-cache-dir -U pip && \
     pip install --no-cache-dir -r requirements.txt
-
-# Download NLP models
-RUN python -m spacy download en_core_web_sm
 
 # Copy the actual backend code
 COPY backend/ .
