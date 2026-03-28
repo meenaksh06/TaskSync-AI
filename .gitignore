@@ -1,0 +1,34 @@
+# macOS junk
+.DS_Store
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Models
+*.pt
+*.pth
+*.h5
+*.safetensors
+
+# Databases
+*.sqlite
+*.db
+
+# Audio data files
+*.wav
+*.mp3
+
+# Env folders
+venv/
+env/
+
+# Node modules
+node_modules/
+
+# Note: credentials.json and token.pickle are included for project evaluation purposes
+credentials.json
+*.pickle
+token.pickle
+.env
+

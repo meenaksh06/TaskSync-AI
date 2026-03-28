@@ -1,0 +1,22 @@
+{
+  "label2id": {
+    "schedule_meeting": 0,
+    "send_email": 1,
+    "check_calendar": 2,
+    "cancel_meeting": 3,
+    "add_reminder": 4,
+    "check_reminders": 5,
+    "send_message": 6,
+    "general_query": 7
+  },
+  "id2label": {
+    "0": "schedule_meeting",
+    "1": "send_email",
+    "2": "check_calendar",
+    "3": "cancel_meeting",
+    "4": "add_reminder",
+    "5": "check_reminders",
+    "6": "send_message",
+    "7": "general_query"
+  }
+}

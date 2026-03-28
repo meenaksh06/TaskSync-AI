@@ -1,0 +1,36 @@
+
+╔══════════════════════════════════════════════════════════════════╗
+║            INTENT CLASSIFIER - EVALUATION REPORT                 ║
+╚══════════════════════════════════════════════════════════════════╝
+
+📊 OVERALL METRICS
+─────────────────────────────────────────────────────────────────────
+   Accuracy:           0.9375  (93.75%)
+   F1 Score (Weighted): 0.9374
+   F1 Score (Macro):    0.9374
+   Precision:          0.9405
+   Recall:             0.9375
+
+📋 DETAILED CLASSIFICATION REPORT
+─────────────────────────────────────────────────────────────────────
+                  precision    recall  f1-score   support
+
+schedule_meeting     1.0000    1.0000    1.0000         6
+      send_email     0.8571    1.0000    0.9231         6
+  check_calendar     1.0000    1.0000    1.0000         6
+  cancel_meeting     1.0000    1.0000    1.0000         6
+    add_reminder     1.0000    1.0000    1.0000         6
+ check_reminders     0.8333    0.8333    0.8333         6
+    send_message     1.0000    0.8333    0.9091         6
+   general_query     0.8333    0.8333    0.8333         6
+
+        accuracy                         0.9375        48
+       macro avg     0.9405    0.9375    0.9374        48
+    weighted avg     0.9405    0.9375    0.9374        48
+
+
+💡 INTERPRETATION
+─────────────────────────────────────────────────────────────────────
+   • Accuracy > 90%: Excellent performance
+   • F1 > 0.85: Good balance between precision and recall
+   • Check confusion matrix for common misclassifications
