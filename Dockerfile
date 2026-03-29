@@ -19,9 +19,6 @@ RUN pip install --no-cache-dir -U pip && \
 COPY backend/download_models.py .
 RUN python download_models.py
 
-# Download spaCy NLP model
-RUN python -m spacy download en_core_web_sm
-
 # Copy the rest of the backend code
 COPY backend/ .
 
