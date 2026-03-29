@@ -11,16 +11,9 @@ Production-ready AI assistant with:
 """
 
 import os
+# --- AI Configuration ---
 os.environ["TRANSFORMERS_NO_TORCHVISION"] = "1"
-
-import torch
-
-# --- AGGRESSIVE MEMORY OPTIMIZATIONS FOR 512MB RAM ---
-os.environ["TORCH_NUM_THREADS"] = "1"
-os.environ["MKL_NUM_THREADS"] = "1"
-os.environ["OMP_NUM_THREADS"] = "1"
-os.environ["PYTORCH_CUDA_ALLOC_CONF"] = "max_split_size_mb:32"
-# ----------------------------------------------------
+# --------------------
 
 from fastapi import FastAPI, UploadFile, File, HTTPException, Form
 from fastapi.staticfiles import StaticFiles
