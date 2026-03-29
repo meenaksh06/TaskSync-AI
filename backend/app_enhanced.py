@@ -13,11 +13,14 @@ Production-ready AI assistant with:
 import os
 os.environ["TRANSFORMERS_NO_TORCHVISION"] = "1"
 
-# --- MEMORY OPTIMIZATIONS FOR 512MB RAM ---
+import torch
+
+# --- AGGRESSIVE MEMORY OPTIMIZATIONS FOR 512MB RAM ---
 os.environ["TORCH_NUM_THREADS"] = "1"
 os.environ["MKL_NUM_THREADS"] = "1"
 os.environ["OMP_NUM_THREADS"] = "1"
-# ------------------------------------------
+os.environ["PYTORCH_CUDA_ALLOC_CONF"] = "max_split_size_mb:32"
+# ----------------------------------------------------
 
 from fastapi import FastAPI, UploadFile, File, HTTPException, Form
 from fastapi.staticfiles import StaticFiles
@@ -25,8 +28,7 @@ from fastapi.responses import FileResponse, RedirectResponse
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from typing import Optional, Dict, Any, List
-import torch
-from transformers import DistilBertTokenizer, DistilBertForSequenceClassification, pipeline
+from transformers import DistilBertTokenizer, DistilBertForSequenceClassification, pipeline, AutoConfig
 import json
 import time
 import re
