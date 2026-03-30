@@ -1,4 +1,4 @@
---index-url https://download.pytorch.org/whl/cpu
+--extra-index-url https://download.pytorch.org/whl/cpu
 # Core Framework
 fastapi==0.115.5
 uvicorn[standard]==0.32.0
