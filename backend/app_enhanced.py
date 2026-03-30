@@ -11,6 +11,7 @@ Production-ready AI assistant with:
 """
 
 import os
+import torch
 # --- AI Configuration ---
 os.environ["TRANSFORMERS_NO_TORCHVISION"] = "1"
 # --------------------

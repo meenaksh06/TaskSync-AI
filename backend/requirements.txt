@@ -1,3 +1,4 @@
+--index-url https://download.pytorch.org/whl/cpu
 # Core Framework
 fastapi==0.115.5
 uvicorn[standard]==0.32.0
@@ -5,7 +6,7 @@ pydantic==2.9.2
 
 # ML & NLP
 transformers==4.46.1
-torch==2.5.1
+torch
 spacy==3.7.2
 scikit-learn==1.3.2
 
